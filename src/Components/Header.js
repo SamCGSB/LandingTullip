@@ -1,56 +1,63 @@
-import React, { Component } from 'react';
-import ParticlesBg  from "particles-bg";
+import React, {Component} from 'react';
+import logo from '../Assets/TULLIP-LOGO-01.svg';
+import ParticlesBg from "particles-bg";
+import {Zoom, FadeInUp} from 'animate-components';
+import MouseParticles from 'react-mouse-particles'
+import {FcCheckmark} from "react-icons/fc";
+import {AiFillPlayCircle} from "react-icons/ai";
 
 class Header extends Component {
-  render() {
+    render() {
 
-    if(this.props.data){
-       var project = this.props.data.project;
-       var github = this.props.data.github;
-      var name = this.props.data.name;
-      var description= this.props.data.description;
-      var city= this.props.data.address.city;
-      var networks= this.props.data.social.map(function(network){
-        return <li key={network.name}><a href={network.url}><i className={network.className}></i></a></li>
-      })
+
+        return (
+            <header id="home">
+                <ParticlesBg color="#F299C1" num={12} type="cobweb" bg={true}/>
+                <nav id="nav-wrap">
+                    <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Ver menú</a>
+                    <a className="mobile-btn" href="#home" title="Hide navigation">Ocultar menú</a>
+                    <ul id="nav" className="nav">
+                        <li className="current"><a className="smoothscroll" href="#home">Inicio</a></li>
+                        <li><a className="smoothscroll" href="#beneficios">Beneficios</a></li>
+                        <li><a className="smoothscroll" href="#cifras">Cifras</a></li>
+                        <li><a className="smoothscroll" href="#tarifas">Tarifas</a></li>
+                        <li><a className="smoothscroll" href="#contact">Contacto</a></li>
+                    </ul>
+                </nav>
+
+                <div id="bannerContainer" className="row banner">
+                    <Zoom duration='1.2s'>
+                        <div id="banner-logo">
+                            <img src={logo}/>
+                        </div>
+                    </Zoom>
+
+                    <FadeInUp duration='1s'>
+                        <div className="banner-text">
+
+                            <h3 id="descripcion">Tullip es el CRM mexicano dedicado al desarrollo mobiliario,
+                                que te permitirá tener un mayor y mejor
+                                control de tus clientes y de las ventas de tus casas.</h3>
+
+                            <h2 id="subdescripcion">Cónoce todos los beneficios que te brindará esta plataforma y todo
+                                lo que vas a ahorrar en tiempo y esfuerzos mal invertidos</h2>
+
+                            <ul id="botoneraHeader">
+                                <a id="botonContratar" className="button btn color1">CONTRATAR</a>
+
+                                <a id="botonReproducir" className="button btn color1">Reproducir Video</a>
+
+                            </ul>
+
+                        </div>
+                    </FadeInUp>
+                    {/*<MouseParticles g={1} color="#D406FF" cull="col,image-wrapper"/>*/}
+                </div>
+
+
+            </header>
+        );
     }
-
-    return (
-      <header id="home">
-      <ParticlesBg type="circle" bg={true} />
-      <nav id="nav-wrap">
-         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-	      <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a>
-
-         <ul id="nav" className="nav">
-            <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
-            <li><a className="smoothscroll" href="#about">About</a></li>
-	         <li><a className="smoothscroll" href="#resume">Resume</a></li>
-            <li><a className="smoothscroll" href="#portfolio">Works</a></li>
-            <li><a className="smoothscroll" href="#contact">Contact</a></li>
-         </ul>
-      </nav>
-
-      <div className="row banner">
-      
-         <div className="banner-text">
-            <h1 className="responsive-headline">{name}</h1>
-            <h3>{description}.</h3>
-            <hr />
-            <ul className="social">
-               <a href={project} className="button btn project-btn"><i className="fa fa-book"></i>Project</a>
-               <a href={github} className="button btn github-btn"><i className="fa fa-github"></i>Github</a>
-            </ul>
-         </div>
-      </div>
-
-      <p className="scrolldown">
-         <a className="smoothscroll" href="#about"><i className="icon-down-circle"></i></a>
-      </p>
-
-   </header>
-    );
-  }
 }
 
 export default Header;

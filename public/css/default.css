@@ -29,6 +29,8 @@ e. Others
 @import url("fonts.css");
 @import url("fontello/css/fontello.css");
 @import url("font-awesome/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500&display=swap');
+
 
 /* ------------------------------------------------------------------
 /* b. Reset
@@ -143,7 +145,7 @@ html {
 
 body {
    background: #fff;
-   font-family: 'opensans-regular', sans-serif;
+   font-family: 'Montserrat-Regular', sans-serif;
    font-weight: normal;
    font-size: 15px;
    line-height: 30px;
